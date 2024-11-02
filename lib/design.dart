@@ -26,7 +26,16 @@ class _DesignState extends State<Design> {
   Widget build(BuildContext context) {
     return Builder(builder: (context) {
       return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          leading: const Icon(Icons.menu),
+          actions: [
+            Row(
+              children: [
+                Image.asset(AppAssets.logo),
+              ],
+            )
+          ],
+        ),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
@@ -80,7 +89,7 @@ class _DesignState extends State<Design> {
                     ),
                     Image.asset(
                       AppAssets.image1,
-                      width: 195,
+                      width: 174,
                     )
                   ],
                 ),
@@ -162,10 +171,13 @@ class _DesignState extends State<Design> {
                 child: Row(
                   children: [
                     const Expanded(
-                      child: ProductItem(
-                        image: AppAssets.image5,
-                        title: 'Air Max 97',
-                        price: '\$20.99',
+                      child: Hero(
+                        tag: 'hero',
+                        child: ProductItem(
+                          image: AppAssets.image5,
+                          title: 'Air Max 97',
+                          price: '\$20.99',
+                        ),
                       ),
                     ),
                     16.horizontal,
